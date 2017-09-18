@@ -9,7 +9,9 @@ the sum of all numbers from 1 up to the number passed in.
 **Sample:**
 sumRange(3) returns 6, since 1 + 2 + 3 = 6.
 
-**Answer:**
+
+<details>
+<summary>**Answer:**</summary>
 ```javascript runnable
 var output = sumRange(3)
 console.log(output);
@@ -21,4 +23,6 @@ function sumRange(num){
 }
 
 ```
+</details>
+
 
