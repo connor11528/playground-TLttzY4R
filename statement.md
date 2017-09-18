@@ -43,22 +43,33 @@ the exponent is 0, return 1.
 
 **Sample:**
 
+```
+console.log(power(2, 4)); // 16
+console.log(power(2, 3)); // 8
+console.log(power(2, 2)); // 4 
+console.log(power(2, 1)); // 2
+console.log(power(2, 0)); // 1
+```
+
+<details>
+<summary>Answer 2</summary>
+
+You can think of it in terms of this example:
+
+```
+2^4 = 2 * 2^3;
+2^3 = 2 * 2^2;
+2^2 = 2 * 2^1;
+2^1 = 2 * 2^0; // once our exponent is 0 we KNOW that the value is always 1!
+```
+
+```javascript runnable
 console.log(power(2, 4)); // 16
 console.log(power(2, 3)); // 8
 console.log(power(2, 2)); // 4 
 console.log(power(2, 1)); // 2
 console.log(power(2, 0)); // 1
 
-<details>
-<summary>Answer 2</summary>
-
-You can think of it in terms of this example:
-2^4 = 2 * 2^3;
-2^3 = 2 * 2^2;
-2^2 = 2 * 2^1;
-2^1 = 2 * 2^0; // once our exponent is 0 we KNOW that the value is always 1!
-
-```javascript runnable
 function power(base, exponent){
 	if(exponent == 0) return 1;
 	return base * power(base, exponent - 1);
@@ -77,13 +88,15 @@ The factorial of 1 is just 1.
 
 **Sample:**
 
+```
 factorial(5); // 5 * 4 * 3 * 2 * 1 === 120
+```
 
 <details>
 <summary>Answer 3</summary>
 
 ```javascript runnable
-console.log(factorial(5));
+console.log(factorial(5)); // 120
 
 function factorial(num){
 	if(num == 1) return 1;
@@ -102,13 +115,13 @@ true if every value in the array returns true when passed as parameter to the
 callback function
 
 **Sample:**
+
 ```
 var allAreLessThanSeven = all([1,2,9], function(num){
 	return num < 7;
 });
 
 console.log(allAreLessThanSeven); // false
-
 ```
 
 <details>
@@ -243,6 +256,7 @@ Given a multi-dimensional integer array, return the total number of integers
 stored inside this array
 
 **Sample:**
+
 ```
 var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
 ```
@@ -335,6 +349,7 @@ For instance, replicate(3, 5) should return [5,5,5].
 If the times argument is negative, return an empty array.
 
 **Sample:**
+
 ```
 console.log(replicate(3, 5)) // [5, 5, 5]
 console.log(replicate(1, 69)) // [69]
