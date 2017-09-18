@@ -4,6 +4,8 @@ This post goes through code samples utilizing recursion. We will state the probl
 
 Special thanks to the [Rithm School free computer science course](https://www.rithmschool.com/courses/javascript-computer-science-fundamentals) and their [exercises on github](https://github.com/rithmschool/javascript_computer_science_exercises/tree/master/recursion_exercise)
 
+---
+
 ### Question 1: Sum all numbers
 
 Write a function called `sumRange`. It will take a number and return 
@@ -31,6 +33,8 @@ function sumRange(num){
 
 ```
 </details>
+
+---
 
 ### Question 2: Power function
 
@@ -62,6 +66,8 @@ function power(base, exponent){
 ```
 </details>
 
+---
+
 ### Question 3: Calculate factorial
 
 Write a function that returns the `factorial` of a number. As a quick refresher, 
@@ -86,6 +92,8 @@ function factorial(num){
 }
 ```
 </details>
+
+---
 
 ### Question 4: Check all values in an array
 
@@ -128,6 +136,8 @@ function all(array, callback){
 ```
 </details>
 
+---
+
 ### Question 5: Product of an array
 
 Write a function called productOfArray which takes in an array of numbers 
@@ -156,6 +166,8 @@ function productOfArray(array){
 }
 ```
 </details>
+
+---
 
 ### Question 6: Search JS object
 
@@ -223,6 +235,7 @@ function contains(obj, value){
 ```
 </details>
 
+---
 
 ### Question 7: Parse a multi-dimensional array
 
@@ -257,6 +270,8 @@ function totalIntegers(array){
 }
 ```
 </details>
+
+---
 
 ### Question 8:
 
@@ -310,6 +325,8 @@ function SumSquares(array){
 }
 ```
 </details>
+
+---
 
 ### Question 9:
 
