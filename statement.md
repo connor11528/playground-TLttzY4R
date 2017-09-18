@@ -62,7 +62,7 @@ function power(base, exponent){
 ```
 </details>
 
-### Question 3:
+### Question 3: Calculate factorial
 
 Write a function that returns the `factorial` of a number. As a quick refresher, 
 a factorial of a number is the result of that number multiplied by the number 
@@ -87,7 +87,7 @@ function factorial(num){
 ```
 </details>
 
-### Question 4:
+### Question 4: Check all values in an array
 
 Write a function called `all` which accepts an array and a callback and returns 
 true if every value in the array returns true when passed as parameter to the 
@@ -128,40 +128,215 @@ function all(array, callback){
 ```
 </details>
 
-### Question 5:
+### Question 5: Product of an array
+
+Write a function called productOfArray which takes in an array of numbers 
+and returns the product of them all
 
 **Sample:**
 
+```
+var six = productOfArray([1,2,3]) // 6
+var sixty = productOfArray([1,2,3,10]) // 60
+```
+
 <details>
-<summary>Answer</summary>
+<summary>Answer 5</summary>
 
 ```javascript runnable
+var six = productOfArray([1,2,3]) // 6
+var sixty = productOfArray([1,2,3,10]) // 60
+
+console.log(six, sixty);
+
+function productOfArray(array){
+	if(array.length === 0) return 1;
+
+	return array.shift() * productOfArray(array);
+}
+```
+</details>
+
+### Question 6: Search JS object
+
+Write a function called `contains` that searches for a value in a nested object. 
+It returns true if the object contains that value.
+
+**Sample:**
+
+```
+var nestedObject = {
+    data: {
+        info: {
+            stuff: {
+                thing: {
+                    moreStuff: {
+                        magicNumber: 44,
+                        something: 'foo2'
+                    }
+                }
+            }
+        }
+    }
+}
+
+let hasIt = contains(nestedObject, 44); // true
+let doesntHaveIt = contains(nestedObject, "foo"); // false
+```
+
+<details>
+<summary>Answer 6</summary>
+
+```javascript runnable
+var nestedObject = {
+    data: {
+        info: {
+            stuff: {
+                thing: {
+                    moreStuff: {
+                        magicNumber: 44,
+                        something: 'foo2'
+                    }
+                }
+            }
+        }
+    }
+}
+
+let hasIt = contains(nestedObject, 44); // true
+let doesntHaveIt = contains(nestedObject, "foo"); // false
+console.log(hasIt, doesntHaveIt);
+
+function contains(obj, value){
+	for(var key in obj){
+		if(typeof obj[key] === 'object'){
+			return contains(obj[key], value);
+		}
+
+		if (obj[key] === value){
+			return true;
+		}
+	}
+	return false;
+}
 
 ```
 </details>
 
-### Question
+
+### Question 7: Parse a multi-dimensional array
+
+Given a multi-dimensional integer array, return the total number of integers 
+stored inside this array
 
 **Sample:**
+```
+var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+```
 
 <details>
-<summary>Answer</summary>
+<summary>Answer 7</summary>
 
 ```javascript runnable
+var seven = totalIntegers([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
+console.log(seven);
 
+function totalIntegers(array){
+	if(array.length === 0) return 0;
+
+	let total = 0;
+	let first = array.shift();
+
+	if (Array.isArray(first)){
+		total += totalIntegers(first); 
+	} else if (Number.isInteger(first)) {
+		total += 1;
+	}
+
+	return total + totalIntegers(array);
+}
 ```
 </details>
 
+### Question 8:
 
-### Question
+Write a function that sums squares of numbers in list that may contain more lists
 
 **Sample:**
 
+```
+var l = [1,2,3]; 
+console.log(SumSquares(l)); // 1 + 4 + 9 = 14
+
+l = [[1,2],3]; 
+console.log(SumSquares(l)); // 1 + 4 + 9 = 14
+
+l = [[[[[[[[[1]]]]]]]]] 
+console.log(SumSquares(l)); // 1 = 1
+
+l = [10,[[10],10],[10]] 
+console.log(SumSquares(l)); // 100 + 100 + 100 + 100 = 400
+```
+
 <details>
-<summary>Answer</summary>
+<summary>Answer 8</summary>
 
 ```javascript runnable
+var l = [1,2,3]; 
+console.log(SumSquares(l)); // 14
 
+l = [[1,2],3]; 
+console.log(SumSquares(l)); // 14
+
+l = [[[[[[[[[1]]]]]]]]] 
+console.log(SumSquares(l)); // 1
+
+l = [10,[[10],10],[10]] 
+console.log(SumSquares(l)); // 400
+
+function SumSquares(array){
+	if(array.length === 0) return 0;
+	let total = 0;
+
+	for(let i = 0; i < array.length; i++){
+		if(Array.isArray(array[i])){
+			total += SumSquares(array[i]);
+		} else {
+			total += array[i] * array[i];
+		}
+		
+	}
+	return total;
+}
+```
+</details>
+
+### Question 9:
+
+The function should return an array containing repetitions of the number argument. 
+For instance, replicate(3, 5) should return [5,5,5]. 
+If the times argument is negative, return an empty array.
+
+**Sample:**
+```
+console.log(replicate(3, 5)) // [5, 5, 5]
+console.log(replicate(1, 69)) // [69]
+console.log(replicate(-2, 6)) // []
+```
+
+<details>
+<summary>Answer 9</summary>
+
+```javascript runnable
+console.log(replicate(3, 5)) // [5, 5, 5]
+console.log(replicate(1, 69)) // [69]
+console.log(replicate(-2, 6)) // []
+
+function replicate(times, number){
+	if(times <= 0) return [];
+
+	return [number].concat(replicate(times - 1, number));
+}
 ```
 </details>
 
